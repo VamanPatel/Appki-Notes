@@ -3,15 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  firebaseConfig: {
-    apiKey: 'AIzaSyBN9pwLMRIzW34G7WurHXENZTT3Os94U5A',
-    authDomain: 'caramel-thinker-269910.firebaseapp.com',
-    projectId: 'caramel-thinker-269910',
-    storageBucket: 'caramel-thinker-269910.appspot.com',
-    messagingSenderId: '1062853458200',
-    appId: '1:1062853458200:web:a1c4857b0096ebe815866d',
-  },
+    production: false,
+    firebaseConfig: {
+        apiKey: "AIzaSyC11C50tTGRdIeVZVP12_Fk9KN5E5FG4yw",
+        authDomain: "appki-notes.firebaseapp.com",
+        projectId: "appki-notes",
+        storageBucket: "appki-notes.appspot.com",
+        messagingSenderId: "458534629276",
+        appId: "1:458534629276:web:167cc9e637205b99b02259",
+    },
 };
 
 /*
