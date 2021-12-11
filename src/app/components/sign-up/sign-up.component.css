@@ -1,0 +1,71 @@
+.displayTable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.displayTable .displayTableCell {
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.displayTable .authBlock {
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  padding: 25px;
+}
+
+.displayTable .Signup {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0;
+}
+
+.Signup .signButton {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 25px;
+  border-radius: 6px;
+}
+.displayTable .orpartition {
+  text-align: center;
+}
+
+.orpartition .orInner {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.displayTable .googleButton {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.googleButton .fa-google {
+  margin-right: 5px;
+}
+
+.displayTable .redirectToLogin {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.redirectToLogin .maintext {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.maintext .redirect {
+  color: #345fd7;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.maintext .redirect:hover {
+  text-decoration: underline;
+}
+
+.no-drop {
+  cursor: no-drop !important;
+}

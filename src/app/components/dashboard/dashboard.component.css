@@ -1,0 +1,47 @@
+.m-100 {
+  margin: 100px;
+}
+
+.main {
+  padding: 1.5rem;
+  border: 1px solid #dee2e6;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.action svg {
+  margin: 0px 5px 0px 5px;
+}
+
+.main .bi-cloud-plus-fill {
+  transform: scale(1);
+  transition: 500ms ease;
+}
+
+.main .bi-cloud-plus-fill:hover {
+  transform: scale(0.9);
+}
+
+.main .bi-pencil-fill {
+  color: #423f3f;
+}
+
+.main .bi-trash-fill {
+  color: red;
+}
+
+.main .ts-table {
+  overflow: auto;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.main-wrapper .ProjectInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

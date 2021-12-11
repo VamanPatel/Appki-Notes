@@ -1,0 +1,84 @@
+.displayTable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.displayTable .displayTableCell {
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.displayTable .login {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0;
+}
+
+.displayTable .authBlock {
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  padding: 25px;
+}
+
+.login .loginbutton {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 25px;
+  border-radius: 6px;
+}
+
+.displayTable .orpartition {
+  text-align: center;
+}
+
+.orpartition .orInner {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.displayTable .googleButton {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.googleButton .fa-google {
+  margin-right: 5px;
+}
+
+.displayTable .forgotPassword {
+  text-align: right;
+}
+
+.forgotPassword .forgot {
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forgotPassword .forgot:hover {
+  text-decoration: underline;
+}
+
+.displayTable .redirectToLogin {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.redirectToLogin .maintext {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.maintext .redirect {
+  color: #345fd7;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.maintext .redirect:hover {
+  text-decoration: underline;
+}

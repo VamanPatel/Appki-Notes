@@ -1,0 +1,48 @@
+.displayTable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.displayTable .displayTableCell {
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.displayTable .authBlock {
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  padding: 25px;
+}
+
+.displayTable .redirectToLogin {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.displayTable .resendButton {
+  text-align: center;
+}
+
+.resendButton .resend {
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.redirectToLogin .maintext {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.maintext .redirect {
+  color: #345fd7;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.maintext .redirect:hover {
+  text-decoration: underline;
+}

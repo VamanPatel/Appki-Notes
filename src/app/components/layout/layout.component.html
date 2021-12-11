@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+  <div class="main-wrapper">
+    <div class="ProjectInfo">
+      <mat-icon>description</mat-icon>
+      <span style="margin-left: 10px">Appki Notes</span>
+    </div>
+
+    <div class="profile">
+      <button mat-button [matMenuTriggerFor]="beforeMenu">
+        {{ email }}
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button
+          mat-menu-item
+          style="
+            text-align: center;
+            font-size: 15px;
+            height: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+          (click)="navigateToProfile()"
+        >
+          Profile
+        </button>
+        <button
+          mat-menu-item
+          style="
+            text-align: center;
+            font-size: 15px;
+            height: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+          (click)="auth.SignOut()"
+        >
+          Logout
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
