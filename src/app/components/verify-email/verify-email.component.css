@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.displayTable .thankYou {
+  margin: 1rem 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
 .displayTable .displayTableCell {
   width: 30%;
   height: 100vh;
@@ -15,6 +21,7 @@
 .displayTable .authBlock {
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
   padding: 25px;
+  border-radius: 10px;
 }
 
 .displayTable .redirectToLogin {
@@ -45,4 +52,63 @@
 
 .maintext .redirect:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1091px) {
+  .displayTable .displayTableCell {
+    width: 40%;
+  }
+}
+
+@media (max-width: 991px) {
+  .displayTable .displayTableCell {
+    width: 50%;
+  }
+
+  .displayTable .thankYou {
+    margin: 0.75rem 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .displayTable .displayTableCell {
+    width: 65%;
+  }
+}
+
+@media (max-width: 521px) {
+  .displayTable .displayTableCell {
+    width: 85%;
+  }
+
+  .displayTable .thankYou {
+    margin: 0.65rem 0;
+    font-size: 20px;
+  }
+
+  .displayTable .authBlock {
+    padding: 15px 25px;
+  }
+
+  .form-group p {
+    font-size: 13px;
+  }
+
+  .redirectToLogin .maintext {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 421px) {
+  .displayTable .displayTableCell {
+    width: 65%;
+  }
+
+  .resendButton .resend {
+    font-size: 10px;
+  }
+
+  .displayTable .thankYou {
+    font-size: 15px;
+  }
 }

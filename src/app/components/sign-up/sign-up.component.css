@@ -11,9 +11,16 @@
   justify-content: center;
 }
 
+.displayTable .SignUpText {
+  margin: 1rem 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
 .displayTable .authBlock {
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
   padding: 25px;
+  border-radius: 10px;
 }
 
 .displayTable .Signup {
@@ -68,4 +75,67 @@
 
 .no-drop {
   cursor: no-drop !important;
+}
+
+@media (max-width: 991px) {
+  .displayTable .displayTableCell {
+    width: 40%;
+  }
+}
+
+@media (max-width: 791px) {
+  .displayTable .displayTableCell {
+    width: 45%;
+  }
+}
+
+@media (max-width: 621px) {
+  .displayTable .displayTableCell {
+    width: 65%;
+  }
+
+  .googleButton .btn-danger {
+    font-size: 12px;
+  }
+
+  .orpartition .orInner {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 421px) {
+  .displayTable .displayTableCell {
+    width: 75%;
+  }
+
+  .displayTable .authBlock {
+    padding: 10px 25px;
+  }
+
+  .displayTable .SignUpText {
+    margin: 1rem 0;
+    font-size: 25px;
+  }
+
+  .authBlock .form-control {
+    font-size: 12px !important;
+  }
+
+  .forgotPassword .forgot {
+    font-size: 12px;
+  }
+
+  .redirectToLogin .maintext {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 331px) {
+  .displayTable .displayTableCell {
+    width: 80%;
+  }
+
+  .displayTable .redirectToLogin {
+    margin-top: 10px;
+  }
 }

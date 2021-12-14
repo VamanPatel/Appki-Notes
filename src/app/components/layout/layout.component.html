@@ -1,15 +1,17 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="toolbarForProject">
   <div class="main-wrapper">
     <div class="ProjectInfo">
-      <mat-icon>description</mat-icon>
-      <span style="margin-left: 10px">Appki Notes</span>
+      <mat-icon class="projectIcon">description</mat-icon>
+      <span class="projectTitle">Appki Notes</span>
     </div>
 
     <div class="profile">
       <button mat-button [matMenuTriggerFor]="beforeMenu">
-        {{ email }}
+        <span class="useremail">{{ email }}</span>
+        <i class="fas fa-caret-down"></i>
+        <i class="fas fa-user" style="font-size: 18px"></i>
       </button>
-      <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <mat-menu #beforeMenu="matMenu" xPosition="before" style="z-index: 999999999">
         <button
           mat-menu-item
           style="
@@ -43,4 +45,6 @@
   </div>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="routerOutlet">
+  <router-outlet></router-outlet>
+</div>

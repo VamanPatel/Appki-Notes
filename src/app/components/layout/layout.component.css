@@ -9,3 +9,45 @@
   justify-content: center;
   align-items: center;
 }
+
+.projectTitle {
+  margin-left: 5px;
+}
+
+.profile .fa-user {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .routerOutlet {
+    padding-top: 70px;
+  }
+
+  .toolbarForProject {
+    position: fixed;
+    z-index: 99999;
+  }
+}
+
+@media (max-width: 441px) {
+  .projectIcon {
+    font-size: 19px !important;
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .projectTitle {
+    font-size: 15px;
+  }
+
+  .profile .useremail {
+    display: none;
+  }
+
+  .profile .fa-caret-down {
+    display: none;
+  }
+  .profile .fa-user {
+    display: block;
+  }
+}

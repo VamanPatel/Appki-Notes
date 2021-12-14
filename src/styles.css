@@ -16,3 +16,9 @@ body {
   border-color: #0d6efd;
   cursor: no-drop;
 }
+
+@media (max-width: 991px) {
+  .mat-menu-content {
+    padding-top: 24px !important;
+  }
+}

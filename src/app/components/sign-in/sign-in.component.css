@@ -1,84 +1,154 @@
 .displayTable {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displayTable .SignInText {
+    margin: 1rem 0;
+    font-size: 28px;
+    font-weight: 500;
 }
 
 .displayTable .displayTableCell {
-  width: 30%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .displayTable .login {
-  display: flex;
-  justify-content: flex-end;
-  margin: 8px 0;
+    display: flex;
+    justify-content: flex-end;
+    margin: 8px 0;
 }
 
 .displayTable .authBlock {
-  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-  padding: 25px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    padding: 25px;
+    border-radius: 10px;
 }
 
 .login .loginbutton {
-  font-weight: 700;
-  font-size: 12px;
-  padding: 5px 25px;
-  border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px 25px;
+    border-radius: 6px;
 }
 
 .displayTable .orpartition {
-  text-align: center;
+    text-align: center;
 }
 
 .orpartition .orInner {
-  font-size: 18px;
-  font-weight: 500;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .displayTable .googleButton {
-  text-align: center;
-  margin: 10px 0;
+    text-align: center;
+    margin: 10px 0;
 }
 
 .googleButton .fa-google {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .displayTable .forgotPassword {
-  text-align: right;
+    text-align: right;
 }
 
 .forgotPassword .forgot {
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .forgotPassword .forgot:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .displayTable .redirectToLogin {
-  text-align: center;
-  margin-top: 10px;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .redirectToLogin .maintext {
-  font-size: 15px;
-  font-weight: 400;
+    font-size: 15px;
+    font-weight: 400;
 }
 
 .maintext .redirect {
-  color: #345fd7;
-  font-weight: 500 !important;
-  cursor: pointer;
+    color: #345fd7;
+    font-weight: 500 !important;
+    cursor: pointer;
 }
 
 .maintext .redirect:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+    .displayTable .displayTableCell {
+        width: 40%;
+    }
+}
+
+@media (max-width: 791px) {
+    .displayTable .displayTableCell {
+        width: 45%;
+    }
+}
+
+@media (max-width: 621px) {
+    .displayTable .displayTableCell {
+        width: 65%;
+    }
+
+    .googleButton .btn-danger {
+        font-size: 12px;
+    }
+
+    .orpartition .orInner {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 421px) {
+    .displayTable .displayTableCell {
+        width: 75%;
+    }
+
+    .displayTable .authBlock {
+        padding: 10px 25px;
+    }
+
+    .displayTable .SignInText {
+        margin: 1rem 0;
+        font-size: 25px;
+    }
+
+    .authBlock .form-control {
+        font-size: 12px !important;
+    }
+
+    .forgotPassword .forgot {
+        font-size: 12px;
+    }
+
+    .redirectToLogin .maintext {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 331px) {
+    .displayTable .displayTableCell {
+        width: 80%;
+    }
+
+    .displayTable .redirectToLogin {
+        margin-top: 10px;
+    }
 }

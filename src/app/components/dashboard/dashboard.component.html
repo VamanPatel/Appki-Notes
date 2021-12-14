@@ -41,13 +41,13 @@
   </div>
 </div> -->
 <ngx-spinner
-    bdColor="rgba(0, 0, 0, 0.8)"
-    size="medium"
-    color="#fff"
-    type="square-jelly-box"
-    [fullScreen]="true"
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+  [fullScreen]="true"
 >
-    <p style="color: white; margin-top: 50px">Loading...</p>
+  <p style="color: white; margin-top: 50px">Loading...</p>
 </ngx-spinner>
 <!-- 
 <div class="container main my-3" *ngIf="loading">
@@ -125,155 +125,147 @@
   </div>
 </div> -->
 
-<div style="display: flex; justify-content: center; margin: 5px 0">
-    <button
-        class="btn btn-primary d-flex justify-content-center align-items-center"
-        style="padding: 2px 50px"
-        (click)="openDialog()"
-    >
-        <div>
-            <svg
-                data-bs-toggle="modal"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-cloud-plus-fill"
-                style="cursor: pointer; color: #fff; margin-right: 5px"
-                viewBox="0 0 16 16"
-                matTooltip="Create New Notes"
-                matTooltipPosition="right"
-            >
-                <path
-                    d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"
-                />
-            </svg>
-        </div>
-        Add New Note
-    </button>
+<div class="buttonDiv">
+  <button class="btn btn-primary addNoteButton" (click)="openDialog()">
+    <div>
+      <svg
+        data-bs-toggle="modal"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-cloud-plus-fill"
+        style="cursor: pointer; color: #fff; margin-right: 5px"
+        viewBox="0 0 16 16"
+        matTooltip="Create New Notes"
+        matTooltipPosition="right"
+      >
+        <path
+          d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"
+        />
+      </svg>
+    </div>
+    Add New Note
+  </button>
 </div>
 
 <div class="mainCardWrapper" (mouseleave)="hoveredIndex = null">
-    <div
-        class="cardDemo"
-        style="--background: #3c3b3d; --text: white"
-        *ngFor="let item of dataSource; let i = index"
-        (mouseover)="hoveredIndex = i"
-    >
-        <div class="textToDisplay" [ngStyle]="{ background: item.colorCode ? item.colorCode : '#000' }">
-            <h4 class="itemName">{{ item.name }}</h4>
-            <hr style="margin: 5px 0; height: 2px; opacity: 0.75; border-radius: 10px" />
-            <span class="itemInfo">{{ item.personalInfo | slice: 0:100 }}</span>
-            <span *ngIf="item.personalInfo.length > 100" style="font-size: 20px; font-weight: 600">....</span>
-        </div>
-        <div class="action" *ngIf="i === hoveredIndex">
-            <i
-                class="fas fa-pen"
-                matTooltip="Edit notes"
-                style="cursor: pointer; margin-right: 10px"
-                matTooltipPosition="below"
-                (click)="edit(item.id)"
-            ></i>
-            <i
-                class="fas fa-trash-alt"
-                (click)="delete(item.id)"
-                matTooltip="Delete note"
-                matTooltipPosition="below"
-                style="cursor: pointer"
-            ></i>
-        </div>
+  <div
+    class="cardDemo"
+    style="--background: #3c3b3d; --text: white"
+    *ngFor="let item of dataSource; let i = index"
+    (mouseover)="hoveredIndex = i"
+  >
+    <div class="textToDisplay" [ngStyle]="{ background: item.colorCode ? item.colorCode : '#000' }">
+      <h4 class="itemName">{{ item.name }}</h4>
+      <hr style="margin: 5px 0; height: 2px; opacity: 0.75; border-radius: 10px" />
+      <span class="itemInfo">{{ item.personalInfo | slice: 0:100 }}</span>
+      <span *ngIf="item.personalInfo.length > 100" style="font-size: 20px; font-weight: 600">....</span>
     </div>
+    <div class="action" *ngIf="i === hoveredIndex">
+      <i
+        class="fas fa-pen"
+        matTooltip="Edit notes"
+        style="cursor: pointer; margin-right: 10px"
+        matTooltipPosition="below"
+        (click)="edit(item.id)"
+      ></i>
+      <i
+        class="fas fa-trash-alt"
+        (click)="delete(item.id)"
+        matTooltip="Delete note"
+        matTooltipPosition="below"
+        style="cursor: pointer"
+      ></i>
+    </div>
+  </div>
 </div>
 
 <button
-    #btnShow
-    style="display: none"
-    id="btnShow"
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
+  #btnShow
+  style="display: none"
+  id="btnShow"
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
 ></button>
 
 <div id="exampleModal" #myModal class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" style="margin: 0; font-size: 20px; font-weight: 500">
-                    {{ isEdit ? "Update Note" : "Add New Note" }}
-                </h5>
-                <button
-                    #btnClose
-                    id="btnClose"
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    (click)="clearEdit()"
-                ></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Name</label>
-                    <input
-                        type="text"
-                        [(ngModel)]="name"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="enter name"
-                        [formControl]="noteName"
-                    />
-                    <div
-                        class="alert alert-danger"
-                        role="alert"
-                        style="padding: 0 15px; font-size: 10px; text-align: center; margin: 0"
-                        *ngIf="noteName.invalid && noteName.touched"
-                    >
-                        <span class="text-danger">Name is Required</span>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Personal Info</label>
-                    <textarea
-                        class="form-control"
-                        [(ngModel)]="personalInfo"
-                        placeholder="enter some personal info"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        [formControl]="noteDescription"
-                    ></textarea>
-                    <div
-                        class="alert alert-danger"
-                        role="alert"
-                        style="padding: 0 15px; font-size: 10px; text-align: center; margin: 0"
-                        *ngIf="noteDescription.invalid && noteDescription.touched"
-                    >
-                        <span class="text-danger">Note Information is Required</span>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <select
-                        class="form-select"
-                        aria-label="Default select example"
-                        [(ngModel)]="selectedColor"
-                    >
-                        <option value="#000">Please Select ColorCode</option>
-                        <option *ngFor="let col of color" [value]="col.colorCode">
-                            {{ col.colorName }}
-                        </option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" (click)="clearEdit()" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" (click)="add()" class="btn btn-primary" [disabled]="isAddUpdate">
-                    {{ isEdit ? "Update Note" : "Add Note" }}
-                </button>
-            </div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="margin: 0; font-size: 20px; font-weight: 500">
+          {{ isEdit ? "Update Note" : "Add New Note" }}
+        </h5>
+        <button
+          #btnClose
+          id="btnClose"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="clearEdit()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name</label>
+          <input
+            type="text"
+            [(ngModel)]="name"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="enter name"
+            [formControl]="noteName"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            style="padding: 0 15px; font-size: 10px; text-align: center; margin: 0"
+            *ngIf="noteName.invalid && noteName.touched"
+          >
+            <span class="text-danger">Name is Required</span>
+          </div>
         </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Personal Info</label>
+          <textarea
+            class="form-control"
+            [(ngModel)]="personalInfo"
+            placeholder="enter some personal info"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            [formControl]="noteDescription"
+          ></textarea>
+          <div
+            class="alert alert-danger"
+            role="alert"
+            style="padding: 0 15px; font-size: 10px; text-align: center; margin: 0"
+            *ngIf="noteDescription.invalid && noteDescription.touched"
+          >
+            <span class="text-danger">Note Information is Required</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedColor">
+            <option value="#000">Please Select ColorCode</option>
+            <option *ngFor="let col of color" [value]="col.colorCode">
+              {{ col.colorName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" (click)="clearEdit()" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" (click)="add()" class="btn btn-primary" [disabled]="isAddUpdate">
+          {{ isEdit ? "Update Note" : "Add Note" }}
+        </button>
+      </div>
     </div>
+  </div>
 </div>

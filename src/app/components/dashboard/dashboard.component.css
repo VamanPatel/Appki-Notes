@@ -1,114 +1,155 @@
 .m-100 {
-    margin: 100px;
+  margin: 100px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.buttonDiv .addNoteButton {
+  padding: 2px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main {
-    padding: 1.5rem;
-    border: 1px solid #dee2e6;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+  padding: 1.5rem;
+  border: 1px solid #dee2e6;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 
 .action svg {
-    margin: 0px 5px 0px 5px;
+  margin: 0px 5px 0px 5px;
 }
 
 .main .bi-cloud-plus-fill {
-    transform: scale(1);
-    transition: 500ms ease;
+  transform: scale(1);
+  transition: 500ms ease;
 }
 
 .main .bi-cloud-plus-fill:hover {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 .main .bi-pencil-fill {
-    color: #423f3f;
+  color: #423f3f;
 }
 
 .main .bi-trash-fill {
-    color: red;
+  color: red;
 }
 
 .main .ts-table {
-    overflow: auto;
+  overflow: auto;
 }
 
 .main-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .main-wrapper .ProjectInfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainCardWrapper .action {
-    height: 100%;
-    width: 100%;
-    /* text-align: center; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
+  height: 100%;
+  width: 100%;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
 }
 
 .mainCardWrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    grid-gap: 5rem;
-    padding: 3rem;
-    background: #f5f7fa;
-    min-height: calc(100% - 104px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-gap: 5rem;
+  padding: 3rem;
 }
 
 .mainCardWrapper .cardDemo {
-    --background: #ffffff;
-    --text: black;
-    position: relative;
-    height: 140px;
-    box-shadow: 0 0 2rem -1rem rgb(0 0 0 / 5%);
+  --background: #ffffff;
+  --text: black;
+  position: relative;
+  height: 140px;
+  box-shadow: 0 0 2rem -1rem rgb(0 0 0 / 5%);
 }
 
 .mainCardWrapper .textToDisplay {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    color: var(--text);
-    padding: 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  color: var(--text);
+  padding: 10px;
 }
 
 .textToDisplay .itemName {
-    margin: 0;
-    font-size: 22px;
-    text-align: center;
-    text-transform: capitalize;
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .action .fa-pen,
 .action .fa-trash-alt {
-    cursor: pointer;
-    background-color: white;
-    border-radius: 50%;
-    border: 1px solid grey;
-    padding: 7px;
-    margin-right: 10px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid grey;
+  padding: 7px;
+  margin-right: 10px;
 }
 .action .fa-pen {
-    color: #345fd7;
+  color: #345fd7;
 }
 .action .fa-trash-alt {
-    color: red;
+  color: red;
+}
+
+@media (max-width: 991px) {
+  .mainCardWrapper {
+    grid-gap: 2rem;
+  }
+}
+
+@media (max-width: 641px) {
+  .mainCardWrapper {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    padding: 2.75rem;
+  }
+}
+
+@media (max-width: 591px) {
+  .mainCardWrapper {
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  }
+}
+
+@media (max-width: 421px) {
+  .buttonDiv .addNoteButton {
+    padding: 2px 35px;
+    font-size: 13px;
+  }
+
+  .mainCardWrapper {
+    padding: 1.54rem 2.75rem;
+  }
 }
