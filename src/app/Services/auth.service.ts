@@ -1,17 +1,14 @@
-import { Injectable, NgZone } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
-import { User } from '../shared/services/user.';
-import firebase from 'firebase/compat/app';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { loginResponse } from '../shared/Modals/userLogin.modal';
+import { Injectable, NgZone } from "@angular/core";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
+import { Router } from "@angular/router";
+import { User } from "../shared/services/user.";
+import firebase from "firebase/compat/app";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { loginResponse } from "../shared/Modals/userLogin.modal";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AuthService {
   userData!: loginResponse;
@@ -29,16 +26,24 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.snak.open('You Are successfully LoggedIn', 'ok', {
-          duration: 2000,
-        });
-        console.log(result, 'user logged');
+        console.log(result.user?.emailVerified, "user logged");
 
-        this.SetUserData(result.user);
+        if (result.user?.emailVerified) {
+          this.SetUserData(result.user);
+          this.router.navigate(["/dashboard"]);
+
+          this.snak.open("You Are successfully LoggedIn", "ok", {
+            duration: 2000,
+          });
+        } else {
+          this.snak.open("Please Verify the Email , Check in Inbox or Junk!!", "ok", {
+            duration: 2000,
+          });
+        }
       })
       .catch((error) => {
         console.error(error);
-        this.snak.open('User Not Found', 'Cancel', { duration: 2000 });
+        this.snak.open("User Not Found", "Cancel", { duration: 2000 });
       });
   }
 
@@ -48,13 +53,13 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SendVerificationMail();
-        this.snak.open('User is Register', 'ok', { duration: 2000 });
+        this.snak.open("User is Register", "ok", { duration: 2000 });
 
         this.SetUserData(result.user);
       })
       .catch((error) => {
         console.error(error);
-        this.snak.open('Error While registering the User', 'ok', {
+        this.snak.open("Error While registering the User", "ok", {
           duration: 2000,
         });
       });
@@ -64,7 +69,7 @@ export class AuthService {
   SendVerificationMail() {
     return this.afAuth.currentUser.then((i) => {
       i?.sendEmailVerification();
-      this.router.navigate(['/verify-email-address']);
+      this.router.navigate(["/verify-email-address"]);
     });
   }
 
@@ -73,7 +78,7 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        window.alert("Password reset email sent, check your inbox.");
       })
       .catch((error) => {
         console.error(error);
@@ -82,7 +87,7 @@ export class AuthService {
 
   /* ---------------- Returns true when user is looged in and email is verified ---------------- */
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
+    const user = JSON.parse(localStorage.getItem("user")!);
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
@@ -97,7 +102,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(["/dashboard"]);
         });
         this.SetUserData(result.user);
       })
@@ -111,16 +116,11 @@ export class AuthService {
   SetUserData(user: any) {
     console.log(user);
     this.userData = user;
-    localStorage.setItem('user_uuid', JSON.stringify(user.uid));
-    localStorage.setItem(
-      'user_refreshTokaen',
-      JSON.stringify(user.refreshToken)
-    );
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user_uuid", JSON.stringify(user.uid));
+    localStorage.setItem("user_refreshTokaen", JSON.stringify(user.refreshToken));
+    localStorage.setItem("user", JSON.stringify(user));
 
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -138,8 +138,8 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.clear();
 
-      this.router.navigate(['sign-in']);
-      console.log('removed');
+      this.router.navigate(["sign-in"]);
+      console.log("removed");
     });
   }
 }

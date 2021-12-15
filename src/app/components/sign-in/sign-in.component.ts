@@ -41,22 +41,7 @@ export class SignInComponent implements OnInit {
   }
 
   Login(email: any, password: any) {
-    // var currentUser = this.user.find((o) => {
-    //     return o.result.email === this.email;
-    // });
-
-    // console.log(currentUser);
-    // if (currentUser) {
-    //     if (currentUser?.result.emailVerified) {
-    this.authService.SignIn(email, password).then((i) => {
-      this.router.navigate(["/dashboard"]);
-    });
-    //     } else {
-    //         this.snak.open("Please Verify Your Email , Check Indox!!", "Ok", { duration: 4000 });
-    //     }
-    // } else {
-    //     this.snak.open("User not Found , Please SignUp!!", "ok", { duration: 3000 });
-    // }
+    this.authService.SignIn(email, password);
   }
 
   getUser() {
