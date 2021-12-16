@@ -149,20 +149,69 @@
   </button>
 </div>
 
-<div class="mainCardWrapper" (mouseleave)="hoveredIndex = null">
+<div class="mainCardWrapper">
   <div
     class="cardDemo"
     style="--background: #3c3b3d; --text: white"
     *ngFor="let item of dataSource; let i = index"
-    (mouseover)="hoveredIndex = i"
   >
     <div class="textToDisplay" [ngStyle]="{ background: item.colorCode ? item.colorCode : '#000' }">
-      <h4 class="itemName">{{ item.name }}</h4>
+      <div class="titleGrup">
+        <h4 class="itemName">{{ item.name }}</h4>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button
+            mat-menu-item
+            style="
+              text-align: center;
+              font-size: 15px;
+              height: 34px;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+            "
+            (click)="edit(item.id)"
+          >
+            <span>Edit Note</span>
+          </button>
+          <button
+            mat-menu-item
+            style="
+              text-align: center;
+              font-size: 15px;
+              height: 34px;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+            "
+            (click)="delete(item.id)"
+          >
+            <span>Delete Note</span>
+          </button>
+        </mat-menu>
+      </div>
+
       <hr style="margin: 5px 0; height: 2px; opacity: 0.75; border-radius: 10px" />
-      <span class="itemInfo">{{ item.personalInfo | slice: 0:100 }}</span>
-      <span *ngIf="item.personalInfo.length > 100" style="font-size: 20px; font-weight: 600">....</span>
+
+      <div
+        style="
+          height: 60px;
+          line-height: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        "
+      >
+        <span class="itemInfo">{{ item.personalInfo }}</span>
+      </div>
     </div>
-    <div class="action" *ngIf="i === hoveredIndex">
+
+    <!-- <div class="action">
       <i
         class="fas fa-pen"
         matTooltip="Edit notes"
@@ -177,7 +226,7 @@
         matTooltipPosition="below"
         style="cursor: pointer"
       ></i>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -191,7 +240,14 @@
   data-bs-target="#exampleModal"
 ></button>
 
-<div id="exampleModal" #myModal class="modal" tabindex="-1">
+<div
+  id="exampleModal"
+  #myModal
+  class="modal fade"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -216,7 +272,7 @@
             [(ngModel)]="name"
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="enter name"
+            placeholder="Enter name"
             [formControl]="noteName"
           />
           <div
@@ -225,7 +281,10 @@
             style="padding: 0 15px; font-size: 10px; text-align: center; margin: 0"
             *ngIf="noteName.invalid && noteName.touched"
           >
-            <span class="text-danger">Name is Required</span>
+            <span class="text-danger" *ngIf="noteName.hasError('required')">Name is Required </span>
+            <span class="text-danger" *ngIf="noteName.hasError('minlength')"
+              >Note Name Must Be AtMost 30 Character</span
+            >
           </div>
         </div>
         <div class="mb-3">
@@ -233,7 +292,7 @@
           <textarea
             class="form-control"
             [(ngModel)]="personalInfo"
-            placeholder="enter some personal info"
+            placeholder="Enter some personal info"
             id="exampleFormControlTextarea1"
             rows="3"
             [formControl]="noteDescription"
@@ -249,12 +308,17 @@
         </div>
 
         <div class="mb-3">
-          <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedColor">
+          <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedColor">
             <option value="#000">Please Select ColorCode</option>
             <option *ngFor="let col of color" [value]="col.colorCode">
               {{ col.colorName }}
             </option>
-          </select>
+          </select> -->
+
+          <div class="selectedColor">
+            <label>Select Color:- </label>
+            <input class="form-control" [(colorPicker)]="selectedColor" [style.background]="selectedColor" />
+          </div>
         </div>
       </div>
 
