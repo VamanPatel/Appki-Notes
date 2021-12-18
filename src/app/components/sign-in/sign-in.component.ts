@@ -3,6 +3,7 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
 import { AuthService } from "src/app/Services/auth.service";
 import { UserResponse } from "src/app/shared/Modals/users.model";
 
@@ -25,7 +26,8 @@ export class SignInComponent implements OnInit {
     public router: Router,
     private snak: MatSnackBar,
     private store: AngularFirestore,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private spinner: NgxSpinnerService
   ) {
     this.fieldEmail = new FormControl("", [Validators.required]);
     this.fieldNewPassword = new FormControl("", [Validators.required]);
@@ -38,10 +40,22 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+
+    var currentUser = this.authService.currentUserValue;
+    console.log(currentUser);
+
+    if (currentUser.length > 0) {
+      this.router.navigate(["/dashboard"]);
+      console.log("You are Logged In");
+    } else {
+      console.log("you are not logged in");
+    }
   }
 
   Login(email: any, password: any) {
-    this.authService.SignIn(email, password);
+    setTimeout(() => {
+      this.authService.SignIn(email, password);
+    }, 1000);
   }
 
   getUser() {

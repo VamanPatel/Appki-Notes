@@ -6,12 +6,14 @@ import { User } from "../shared/services/user.";
 import firebase from "firebase/compat/app";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { loginResponse } from "../shared/Modals/userLogin.modal";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
   userData!: loginResponse;
+  private currentUserSubject!: BehaviorSubject<any>;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -19,7 +21,13 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone,
     private snak: MatSnackBar
-  ) {}
+  ) {
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem("user_uuid") || "{}"));
+  }
+
+  public get currentUserValue() {
+    return this.currentUserSubject.value;
+  }
 
   // Sign in with email/password
   SignIn(email: any, password: any) {
