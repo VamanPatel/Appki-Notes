@@ -15,6 +15,20 @@
   align-items: center;
 }
 
+.nosuchrecord {
+  text-align: center;
+  padding: 100px;
+  font-family: inherit;
+  font-weight: 800;
+  word-spacing: 5px;
+  /* font-size: 20px; */
+  color: red;
+  border: 1px solid #b0aeae;
+  width: 60%;
+  margin: 40px auto;
+  border-radius: 10px;
+}
+
 .main {
   padding: 1.5rem;
   border: 1px solid #dee2e6;

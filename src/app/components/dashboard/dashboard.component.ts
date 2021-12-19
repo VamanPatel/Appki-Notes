@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   color: any[] = [];
   selectedColor!: any;
-
+  noData: boolean = false;
   email!: string | null;
   form!: FormGroup;
   hoveredIndex!: number | null;
@@ -141,6 +141,11 @@ export class DashboardComponent implements OnInit {
             return Object.assign({ id: item.payload.doc.id }, item.payload.doc.data());
           });
           console.log(this.dataSource);
+          if (this.dataSource?.length > 0) {
+            console.log("data is there");
+          } else {
+            this.noData = true;
+          }
         });
       this.spinner.hide();
       this.loading = true;

@@ -1,6 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="backButton">
+      <button class="btn btn-danger" (click)="goBack()">Back</button>
+    </div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-4">
       <div class="inner-adjust">
         <div class="pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">User Profile</h1>
@@ -10,18 +13,14 @@
             <div class="media">
               <img
                 class="align-self-start mr-5 img-thumbnail rounded-circle"
-                src="{{
-                  user.photoURL ? user.photoURL : '/assets/download.png'
-                }}"
+                src="{{ user.photoURL ? user.photoURL : '/assets/download.png' }}"
                 alt="{{ user.displayName }}"
                 style="width: 100px"
               />
               <div class="media-body">
                 <h1 style="font-size: 30px; margin: 11px 0">
                   Hello:
-                  <strong>{{
-                    user.displayName ? user.displayName : "User"
-                  }}</strong>
+                  <strong>{{ user.displayName ? user.displayName : "User" }}</strong>
                 </h1>
                 <p>
                   User ID: <strong>{{ user.uid }}</strong>
