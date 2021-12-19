@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
     private fb: FormBuilder,
     private spinner: NgxSpinnerService
   ) {
-    this.fieldEmail = new FormControl("", [Validators.required]);
+    this.fieldEmail = new FormControl("", [<any>this.EmailValidator()]);
     this.fieldNewPassword = new FormControl("", [Validators.required]);
 
     this.form = fb.group({
@@ -56,6 +56,17 @@ export class SignInComponent implements OnInit {
     setTimeout(() => {
       this.authService.SignIn(email, password);
     }, 1000);
+  }
+
+  EmailValidator() {
+    return (control: FormControl) => {
+      if (control.value) {
+        if (!new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$").test(control.value)) {
+          return { error: "Invalid email" };
+        }
+      }
+      return null;
+    };
   }
 
   getUser() {

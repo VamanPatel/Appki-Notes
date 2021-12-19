@@ -18,7 +18,8 @@
           style="padding: 0 15px; font-size: 10px; text-align: center; margin: 0"
           *ngIf="fieldEmail.invalid && fieldEmail.touched"
         >
-          <span class="text-danger">Email is Required</span>
+          <span class="text-danger" *ngIf="fieldEmail.hasError('required')">Email is Required</span>
+          <span class="text-danger" *ngIf="fieldEmail.hasError('error')">Invalid Email</span>
         </div>
       </div>
 
