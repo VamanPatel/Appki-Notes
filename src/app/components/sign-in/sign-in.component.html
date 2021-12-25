@@ -23,15 +23,17 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="position: relative">
         <input
-          type="password"
+          [type]="hide ? 'text' : 'password'"
           [formControl]="fieldNewPassword"
           class="form-control"
           placeholder="Password"
           #userPassword
           required
         />
+        <i class="fas" (click)="showpassword()" [ngClass]="{ 'fa-eye-slash': !hide }"></i>
+        <i class="fas" (click)="showpassword()" [ngClass]="{ 'fa-eye': hide }"></i>
         <div
           class="alert alert-danger"
           role="alert"

@@ -96,6 +96,7 @@ export class DashboardComponent implements OnInit {
       this.clearEdit();
       this.isEdit = false;
     } else {
+      this.noData = false;
       this.store
         .collection("list")
         .doc("users")

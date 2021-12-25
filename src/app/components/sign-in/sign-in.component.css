@@ -90,6 +90,14 @@
   text-decoration: underline;
 }
 
+.form-group .fas {
+  position: absolute;
+  /* float: right; */
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
 @media (max-width: 991px) {
   .displayTable .displayTableCell {
     width: 40%;

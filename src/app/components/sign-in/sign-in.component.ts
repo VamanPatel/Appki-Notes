@@ -14,6 +14,8 @@ import { UserResponse } from "src/app/shared/Modals/users.model";
 })
 export class SignInComponent implements OnInit {
   user!: UserResponse[];
+  hide: boolean = false;
+
   emailVerified!: boolean;
   email!: string;
 
@@ -83,5 +85,9 @@ export class SignInComponent implements OnInit {
 
         console.log(this.user);
       });
+  }
+
+  showpassword() {
+    this.hide = !this.hide;
   }
 }
